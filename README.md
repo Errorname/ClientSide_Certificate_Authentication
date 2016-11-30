@@ -169,3 +169,5 @@ http://nategood.com/client-side-certificate-authentication-in-ngi
 http://unix.stackexchange.com/questions/103461/get-common-name-cn-from-ssl-certificate
 
 http://mindref.blogspot.fr/2012/02/openssl-renew-certificate.html
+
+https://www.win.tue.nl/hashclash/rogue-ca/
