@@ -2,9 +2,21 @@
 
 This document is intended to explain what is Client-Side Certificate Authentication and how to use it.
 
-Disclaimer: I am not a security expert. There may be some errors or incomplete explanations and therefore I encourage you to correct and improve this document. 
+Disclaimer: I am not a security expert. There may be some errors or incomplete explanations and therefore I encourage you to correct and improve this document.
 
-## What is Client-Side Certificate Authentication (CSCA)?
+1. [Introduction](#1-introduction)
+    * [What is Client-Side Certificate Authentification (CSCA)?](#-what-is-client-side-certificate-authentication-csca)
+    * [How do this work?](#-how-do-this-work)
+2. [Setting up a CSCA](#2-setting-up-a-csca)
+    1. [Requirements](#i-requirements)
+    2. [Setup the CA](#ii-setup-the-ca)
+    3. [Generate a client certificate](#iii-generate-a-client-certificate)
+    4. [Going further](#iv-going-further)
+3. [Documentation](#3-documentation)
+
+## 1) Introduction
+
+### * What is Client-Side Certificate Authentication (CSCA)?
 
 CSCA is a way to authenticate your clients to your server using SSL certificates.
 
@@ -12,7 +24,7 @@ The first advantage is security: Using SSL certificates to communicate between c
 
 The second advantage is to free yourself from a datastore with the common username/password schema. (Which often imply security threats with "p@ssword123" and others".)
 
-## How do this work?
+### * How do this work?
 
 Basically, you will establish yourself as a Certificate Autority (CA) to verify the certificate of a client and allow or deny access to your server ressource.
 
@@ -20,17 +32,17 @@ When you want to allow aclient access, you will issue a signed certificate that 
 
 Every time your server receive a request, he will verify the given certificate with your CA's certificate.
 
-## How do I make it work ?
+## 2) Setting up a CSCA
 
 First, you will setup the CA, then you will generate client certificates.
 
-### Requirements
+### i) Requirements
 
 This document specify the procedure used on a linux OS with root access, but you can probably follow them with some tweaking on other OS.
 
 You will need an up-to-date OpenSSL to ensure you have the latest security patches.
 
-### 1) Setup the CA
+### ii) Setup the CA
 
 OpenSSL comes with a default CA. We won't use it, but we will customize OpenSSL's config file to our needs.
 ```
@@ -93,7 +105,7 @@ The most important information to give is the "Common Name" field which is typic
 > Note: The certificate will be valid for a limit number of days. Either the default specified in the config file or the one given with the -days 365 argument.
 > More on this here: http://security.stackexchange.com/a/85991
 
-### 2) Generate a client certificate
+### iii) Generate a client certificate
 
 Now that you have the CA's certificate, let's begin with the client certificates.
 
@@ -146,7 +158,7 @@ You should expect something like that:
 > Note: If you get an error 18, this mean that you used the same Common Name than your CA.
 > More on this here: http://stackoverflow.com/a/19738223
 
-### 3) Going further
+### iv) Going further
 
 Section in construction...
 - CSCA on Apache
@@ -154,7 +166,7 @@ Section in construction...
 - Certificate revoking
 - Certificate renewal
 
-## Documentation
+## 3) Documentation
 
 During my learning of CSCA, I found quite of a lot of documentation. I listed them here:
 
