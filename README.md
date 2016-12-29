@@ -161,8 +161,8 @@ You should expect something like that:
 ### iv) Going further
 
 Section in construction...
-- CSCA on Apache
-- CSCA on Nginx
+- CSCA in Apache
+- [CSCA in Nginx](CSCA_in_nginx.md)
 - Certificate revoking
 - Certificate renewal
 
