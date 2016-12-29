@@ -143,7 +143,7 @@ You should expect something like that:
 
 > Note: If you get an error 18, run this command
 
-> `cp /etc/ssl/ca/ca.crt /usr/local/share/ca-certificates/ && update-ca-certificates`
+> `cp /etc/ssl/ca/certs/ca.crt /usr/local/share/ca-certificates/ && update-ca-certificates`
 
 Now run this command to test the user's certificate:
 ```
